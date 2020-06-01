@@ -11,14 +11,10 @@ namespace ScheduleMail
     {
         static void Main(string[] args)
         {
-            var currentTime = DateTime.Now.ToShortTimeString();
             MailReminder mailReminder = new MailReminder();
-            if (string.Compare(currentTime, "15:49") > 0)
-            {
-                string messageText = "";
-                List<MailAddress> mailTo = mailReminder.GetMailAddressFromDB();
-                mailReminder.SendMail(messageText, mailTo);
-            }
+            string messageText = "";
+            List<MailAddress> mailTo = mailReminder.GetMailAddressFromDB();
+            mailReminder.SendMail(messageText, mailTo);
         }
 
         private List<MailAddress> GetMailAddressFromDB()
